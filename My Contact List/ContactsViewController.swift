@@ -9,30 +9,33 @@ import UIKit
 
 class ContactsViewController: UIViewController {
 
+    
+    
     @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtAddress: UITextField!
     @IBOutlet weak var txtCity: UITextField!
     @IBOutlet weak var txtState: UITextField!
     @IBOutlet weak var txtZip: UITextField!
-    @IBOutlet weak var txtHome: UITextField!
-    @IBOutlet weak var txtCell: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var lblBirthday: UILabel!
+    @IBOutlet weak var txtCell: UITextField!
+    @IBOutlet weak var txtHome: UITextField!
     @IBOutlet weak var btnChange: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.changeEditMode(self)
     }
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
     }
-    
+
     @IBAction func changeEditMode(_ sender: Any) {
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtCell, txtHome, txtEmail]
         
@@ -88,7 +91,7 @@ class ContactsViewController: UIViewController {
         self.scrollView.contentInset = contentInset
         self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
-    
+
     
     /*
     // MARK: - Navigation
