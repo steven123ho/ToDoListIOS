@@ -56,6 +56,11 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    @objc func saveContact() {
+        appDelegate.saveContext()
+        sgmtEditMode.selectedSegmentIndex = 0
+        changeEditMode(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,15 +76,16 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
                 textField.borderStyle = UITextField.BorderStyle.none
             }
             btnChange.isHidden = true
+            navigationItem.rightBarButtonItem = nil
         } else if sgmtEditMode.selectedSegmentIndex == 1 {
             for textField in textFields {
                 textField.isEnabled = true
                 textField.borderStyle = UITextField.BorderStyle.roundedRect
             }
             btnChange.isHidden = false
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveContact))
         }
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
