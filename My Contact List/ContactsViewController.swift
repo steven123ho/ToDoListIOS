@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: UIViewController, UITextFieldDelegate {
 
-    
+    var currentContact: Contact?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -28,6 +30,30 @@ class ContactsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.changeEditMode(self)
+        
+        let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtHome, txtCell, txtEmail]
+        
+        for textfield in textFields {
+            textfield.addTarget(self, 
+                                action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
+                                for: UIControl.Event.editingDidEnd)
+        }
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if currentContact == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            currentContact = Contact(context: context)
+        }
+        currentContact?.contactName = txtName.text
+        currentContact?.streetAddress = txtAddress.text
+        currentContact?.city = txtCity.text
+        currentContact?.state = txtState.text
+        currentContact?.zipCode = txtZip.text
+        currentContact?.cellNumber = txtCell.text
+        currentContact?.phoneNumber = txtHome.text
+        currentContact?.email = txtEmail.text
+        return true
     }
     
 

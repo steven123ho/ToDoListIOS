@@ -17,6 +17,7 @@
 		92CCABEE2B9011930089A09D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CCABEC2B9011930089A09D /* Main.storyboard */; };
 		92CCABF02B9011930089A09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CCABEF2B9011930089A09D /* Assets.xcassets */; };
 		92CCABF32B9011930089A09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CCABF12B9011930089A09D /* LaunchScreen.storyboard */; };
+		92EE802C2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92EE802A2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		92CCABEF2B9011930089A09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92CCABF22B9011930089A09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92CCABF42B9011930089A09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92EE802B2BACC0E0004C67AF /* MyContactListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyContactListModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				9246A80D2B97B3240037A636 /* SettingsViewController.swift */,
 				926F7F8D2BAC841500594A72 /* Constants.swift */,
 				92CCABE62B9011930089A09D /* AppDelegate.swift */,
+				92EE802A2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld */,
 				92CCABE82B9011930089A09D /* SceneDelegate.swift */,
 				92CCABEA2B9011930089A09D /* ViewController.swift */,
 				92CCABEC2B9011930089A09D /* Main.storyboard */,
@@ -156,6 +159,7 @@
 				92CCABE72B9011930089A09D /* AppDelegate.swift in Sources */,
 				926F7F8E2BAC841500594A72 /* Constants.swift in Sources */,
 				92CCABE92B9011930089A09D /* SceneDelegate.swift in Sources */,
+				92EE802C2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld in Sources */,
 				9246A80E2B97B3240037A636 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +381,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92EE802A2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92EE802B2BACC0E0004C67AF /* MyContactListModel.xcdatamodel */,
+			);
+			currentVersion = 92EE802B2BACC0E0004C67AF /* MyContactListModel.xcdatamodel */;
+			path = MyContactListModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 92CCABDB2B9011920089A09D /* Project object */;
 }
