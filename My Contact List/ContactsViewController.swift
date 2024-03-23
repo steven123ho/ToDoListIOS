@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ContactsViewController: UIViewController, UITextFieldDelegate {
+class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
 
     var currentContact: Contact?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -25,11 +25,12 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtCell: UITextField!
     @IBOutlet weak var txtHome: UITextField!
     @IBOutlet weak var btnChange: UIButton!
+    @IBOutlet weak var lblBirthdate: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.changeEditMode(self)
+        changeEditMode(self)
         
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtHome, txtCell, txtEmail]
         
@@ -61,6 +62,26 @@ class ContactsViewController: UIViewController, UITextFieldDelegate {
         sgmtEditMode.selectedSegmentIndex = 0
         changeEditMode(self)
     }
+    
+    //Implementing DateControllerDelegate Protocol function for Changing birthdate
+    func dateChanged(date: Date) {
+        if currentContact == nil {
+            let context = appDelegate.persistentContainer.viewContext
+            currentContact = Contact(context: context)
+        }
+        currentContact?.birthday = date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        lblBirthdate.text = formatter.string(from: date)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segueContactDate") {
+            let dateController = segue.destination as! DateViewController
+            dateController.delegate = self
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

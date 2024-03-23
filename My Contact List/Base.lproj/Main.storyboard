@@ -106,7 +106,7 @@
         <!--Birthdate-->
         <scene sceneID="KX2-Xn-dP9">
             <objects>
-                <viewController title="Birthdate" id="aQI-Zw-zaX" sceneMemberID="viewController">
+                <viewController title="Birthdate" id="aQI-Zw-zaX" customClass="DateViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uf9-EI-nYD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,6 +120,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Birthdate" id="0N3-a1-eap"/>
+                    <connections>
+                        <outlet property="dtpDate" destination="EQr-db-CrP" id="YkC-n6-0Od"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ik-Gk-PAN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,7 +247,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Change"/>
                                         <connections>
-                                            <segue destination="aQI-Zw-zaX" kind="show" id="ECZ-bU-zJG"/>
+                                            <segue destination="aQI-Zw-zaX" kind="show" identifier="segueContactDate" id="ECZ-bU-zJG"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01/01/1970" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EE-xo-re5">
@@ -265,6 +268,7 @@
                     <navigationItem key="navigationItem" title="Contacts" id="lmp-pM-WPY"/>
                     <connections>
                         <outlet property="btnChange" destination="jxF-AA-icN" id="lDc-PZ-c9f"/>
+                        <outlet property="lblBirthdate" destination="6EE-xo-re5" id="2rE-6L-EHT"/>
                         <outlet property="scrollView" destination="gRF-oV-kOx" id="uLs-ag-oIJ"/>
                         <outlet property="sgmtEditMode" destination="L0t-JZ-1oV" id="HRI-Tt-IoV"/>
                         <outlet property="txtAddress" destination="DXN-l0-lob" id="42C-vl-3jJ"/>
