@@ -12,13 +12,14 @@
 		9246A80E2B97B3240037A636 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246A80D2B97B3240037A636 /* SettingsViewController.swift */; };
 		9246A8102B97B3520037A636 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246A80F2B97B3520037A636 /* MapViewController.swift */; };
 		926F7F8E2BAC841500594A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F7F8D2BAC841500594A72 /* Constants.swift */; };
+		927199D72BB74C3200B33306 /* MyContactListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92EE802A2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld */; };
+		927199D92BB74D6B00B33306 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927199D82BB74D6B00B33306 /* ContactsTableViewController.swift */; };
 		92CCABE72B9011930089A09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CCABE62B9011930089A09D /* AppDelegate.swift */; };
 		92CCABE92B9011930089A09D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CCABE82B9011930089A09D /* SceneDelegate.swift */; };
 		92CCABEB2B9011930089A09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CCABEA2B9011930089A09D /* ViewController.swift */; };
 		92CCABEE2B9011930089A09D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CCABEC2B9011930089A09D /* Main.storyboard */; };
 		92CCABF02B9011930089A09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CCABEF2B9011930089A09D /* Assets.xcassets */; };
 		92CCABF32B9011930089A09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CCABF12B9011930089A09D /* LaunchScreen.storyboard */; };
-		92EE802C2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92EE802A2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9246A80D2B97B3240037A636 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9246A80F2B97B3520037A636 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		926F7F8D2BAC841500594A72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		927199D82BB74D6B00B33306 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		92CCABE32B9011930089A09D /* My Contact List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Contact List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCABE62B9011930089A09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92CCABE82B9011930089A09D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				92CCABF12B9011930089A09D /* LaunchScreen.storyboard */,
 				92CCABF42B9011930089A09D /* Info.plist */,
 				921C8CAE2BAF306A007017ED /* DateViewController.swift */,
+				927199D82BB74D6B00B33306 /* ContactsTableViewController.swift */,
 			);
 			path = "My Contact List";
 			sourceTree = "<group>";
@@ -158,11 +161,12 @@
 			files = (
 				92CCABEB2B9011930089A09D /* ViewController.swift in Sources */,
 				9246A8102B97B3520037A636 /* MapViewController.swift in Sources */,
+				927199D92BB74D6B00B33306 /* ContactsTableViewController.swift in Sources */,
 				9246A80A2B97B2EE0037A636 /* ContactsViewController.swift in Sources */,
+				927199D72BB74C3200B33306 /* MyContactListModel.xcdatamodeld in Sources */,
 				92CCABE72B9011930089A09D /* AppDelegate.swift in Sources */,
 				926F7F8E2BAC841500594A72 /* Constants.swift in Sources */,
 				92CCABE92B9011930089A09D /* SceneDelegate.swift in Sources */,
-				92EE802C2BACC0E0004C67AF /* MyContactListModel.xcdatamodeld in Sources */,
 				921C8CAF2BAF306A007017ED /* DateViewController.swift in Sources */,
 				9246A80E2B97B3240037A636 /* SettingsViewController.swift in Sources */,
 			);
