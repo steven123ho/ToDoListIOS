@@ -108,7 +108,7 @@
             <objects>
                 <viewController title="Birthdate" id="aQI-Zw-zaX" customClass="DateViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uf9-EI-nYD">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="EQr-db-CrP">
@@ -131,7 +131,7 @@
         <!--Contacts-->
         <scene sceneID="J0a-i5-q0p">
             <objects>
-                <viewController title="Contacts" id="YeX-ei-tTy" customClass="ContactsViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactController" title="Contacts" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YeX-ei-tTy" customClass="ContactsViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3lh-6G-4Eq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,6 +317,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="YeX-ei-tTy" kind="show" identifier="EditContact" trigger="accessoryAction" id="uZX-9E-hed"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -324,7 +327,13 @@
                             <outlet property="delegate" destination="mso-fQ-onE" id="qff-O3-1uK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" id="yrb-O9-n07"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="yrb-O9-n07">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FCd-hz-eZV">
+                            <connections>
+                                <segue destination="YeX-ei-tTy" kind="show" identifier="AddContact" id="B5h-hz-cPr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4Q-vC-Mid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -354,6 +363,9 @@
             <point key="canvasLocation" x="4318" y="-106"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uZX-9E-hed"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="map" catalog="system" width="128" height="112"/>
