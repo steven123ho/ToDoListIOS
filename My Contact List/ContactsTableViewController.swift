@@ -10,9 +10,6 @@ import CoreData
 
 class ContactsTableViewController: UITableViewController {
 
-    
-   // let contacts = ["Jim", "John", "Dana", "Rosie", "Justin", "Jeremy", "Sarah", "Matt", "Joe", "Donald", "Jeff"]
-    
     var contacts: [NSManagedObject] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -81,8 +78,15 @@ class ContactsTableViewController: UITableViewController {
 
         // Configure the cell...
         let contact = contacts[indexPath.row] as? Contact
-        cell.textLabel?.text = contact?.contactName
-        cell.detailTextLabel?.text = contact?.city
+        cell.textLabel?.text = "\((contact?.contactName)!) from \((contact?.city)!)"
+        
+        //Detail label for birthday
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        if contact?.birthday != nil {
+            cell.detailTextLabel?.text = "Born on: \(formatter.string(from: (contact?.birthday!)!))"
+        }
+
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
         return cell
     }
