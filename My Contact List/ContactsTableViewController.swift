@@ -46,6 +46,8 @@ class ContactsTableViewController: UITableViewController {
         //Set Up Request
         let request = NSFetchRequest<NSManagedObject> (entityName: "Contact")
         
+        
+        
         // Specify Sorting
         let sortDescriptor = NSSortDescriptor(key: sortField, ascending: sortAscending)
         let sortDescriptorArray = [sortDescriptor]
@@ -78,7 +80,7 @@ class ContactsTableViewController: UITableViewController {
 
         // Configure the cell...
         let contact = contacts[indexPath.row] as? Contact
-        cell.textLabel?.text = "\((contact?.contactName)!) from \((contact?.city)!)"
+        cell.textLabel?.text = "\((contact?.contactName) ?? " ") from \((contact?.city) ?? " ")"
         
         //Detail label for birthday
         let formatter = DateFormatter()
