@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7JG-Ho-YmU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L0Z-d9-2xF">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -319,18 +320,54 @@
         <!--Maps-->
         <scene sceneID="fRV-QP-JG2">
             <objects>
-                <viewController title="Maps" id="8bj-WW-Ubd" sceneMemberID="viewController">
+                <viewController title="Maps" id="8bj-WW-Ubd" customClass="MapViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N08-V7-shU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzF-Fv-Jix">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsZ-yu-fqH">
+                                <rect key="frame" x="9" y="68" width="107" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Find Me!"/>
+                                <connections>
+                                    <action selector="findUser:" destination="8bj-WW-Ubd" eventType="touchUpInside" id="Zbt-m6-050"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THK-AC-5jg">
+                                <rect key="frame" x="12" y="111" width="101" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Zoom Out"/>
+                                <connections>
+                                    <action selector="zoomOut:" destination="8bj-WW-Ubd" eventType="touchUpInside" id="oBZ-rD-biH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="66d-AB-Zy6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="THK-AC-5jg" firstAttribute="top" secondItem="dsZ-yu-fqH" secondAttribute="bottom" constant="8" id="451-I5-qJV"/>
+                            <constraint firstItem="gzF-Fv-Jix" firstAttribute="centerX" secondItem="N08-V7-shU" secondAttribute="centerX" id="5z6-7g-ftx"/>
+                            <constraint firstItem="gzF-Fv-Jix" firstAttribute="leading" secondItem="66d-AB-Zy6" secondAttribute="leading" id="BiL-l8-R7M"/>
+                            <constraint firstItem="dsZ-yu-fqH" firstAttribute="top" secondItem="66d-AB-Zy6" secondAttribute="top" constant="9" id="RlU-Iv-xrr"/>
+                            <constraint firstItem="gzF-Fv-Jix" firstAttribute="bottom" secondItem="66d-AB-Zy6" secondAttribute="bottom" id="hEN-T9-cm5"/>
+                            <constraint firstItem="THK-AC-5jg" firstAttribute="centerX" secondItem="dsZ-yu-fqH" secondAttribute="centerX" id="l60-at-Uu5"/>
+                            <constraint firstItem="dsZ-yu-fqH" firstAttribute="leading" secondItem="66d-AB-Zy6" secondAttribute="leading" constant="9" id="vkW-1S-9UW"/>
+                            <constraint firstItem="gzF-Fv-Jix" firstAttribute="top" secondItem="66d-AB-Zy6" secondAttribute="top" id="xuO-fX-jrA"/>
+                            <constraint firstItem="THK-AC-5jg" firstAttribute="leading" secondItem="66d-AB-Zy6" secondAttribute="leading" constant="12" id="ybN-wH-1O9"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Maps" image="map" catalog="system" id="IEH-6H-Q44"/>
+                    <connections>
+                        <outlet property="mapView" destination="gzF-Fv-Jix" id="TBN-0w-b1V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgZ-gM-Ddr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3424" y="953"/>
+            <point key="canvasLocation" x="3423.6641221374043" y="952.8169014084508"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="L05-uQ-YtN">
