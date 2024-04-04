@@ -86,7 +86,7 @@ class ContactsTableViewController: UITableViewController {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         if contact?.birthday != nil {
-            cell.detailTextLabel?.text = "Born on: \(formatter.string(from: (contact?.birthday!)!)) Phone Number: \((contact?.phoneNumber) ?? "N/A")"
+            cell.detailTextLabel?.text = "Born on: \(formatter.string(from: (contact?.birthday!)!))"
         }
 
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton

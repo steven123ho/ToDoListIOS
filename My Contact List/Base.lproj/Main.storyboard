@@ -345,13 +345,26 @@
                                     <action selector="zoomOut:" destination="8bj-WW-Ubd" eventType="touchUpInside" id="oBZ-rD-biH"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="x74-7C-uB6">
+                                <rect key="frame" x="83" y="727" width="227" height="32"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satellite"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mapTypeChanged:" destination="8bj-WW-Ubd" eventType="valueChanged" id="8sc-Nc-JHm"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="66d-AB-Zy6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="THK-AC-5jg" firstAttribute="top" secondItem="dsZ-yu-fqH" secondAttribute="bottom" constant="8" id="451-I5-qJV"/>
+                            <constraint firstItem="66d-AB-Zy6" firstAttribute="bottom" secondItem="x74-7C-uB6" secondAttribute="bottom" constant="11" id="4Sp-HI-LD1"/>
                             <constraint firstItem="gzF-Fv-Jix" firstAttribute="centerX" secondItem="N08-V7-shU" secondAttribute="centerX" id="5z6-7g-ftx"/>
                             <constraint firstItem="gzF-Fv-Jix" firstAttribute="leading" secondItem="66d-AB-Zy6" secondAttribute="leading" id="BiL-l8-R7M"/>
+                            <constraint firstItem="x74-7C-uB6" firstAttribute="centerX" secondItem="gzF-Fv-Jix" secondAttribute="centerX" id="P2U-Zg-Yaf"/>
                             <constraint firstItem="dsZ-yu-fqH" firstAttribute="top" secondItem="66d-AB-Zy6" secondAttribute="top" constant="9" id="RlU-Iv-xrr"/>
                             <constraint firstItem="gzF-Fv-Jix" firstAttribute="bottom" secondItem="66d-AB-Zy6" secondAttribute="bottom" id="hEN-T9-cm5"/>
                             <constraint firstItem="THK-AC-5jg" firstAttribute="centerX" secondItem="dsZ-yu-fqH" secondAttribute="centerX" id="l60-at-Uu5"/>
@@ -363,6 +376,7 @@
                     <tabBarItem key="tabBarItem" title="Maps" image="map" catalog="system" id="IEH-6H-Q44"/>
                     <connections>
                         <outlet property="mapView" destination="gzF-Fv-Jix" id="TBN-0w-b1V"/>
+                        <outlet property="sgmtMapType" destination="x74-7C-uB6" id="xPU-xy-zj4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgZ-gM-Ddr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
