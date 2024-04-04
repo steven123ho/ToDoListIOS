@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9209DA5D2BBE340F00F6D9C7 /* LocationDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209DA5C2BBE340F00F6D9C7 /* LocationDemoViewController.swift */; };
 		921C8CAF2BAF306A007017ED /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C8CAE2BAF306A007017ED /* DateViewController.swift */; };
 		9246A80A2B97B2EE0037A636 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246A8092B97B2EE0037A636 /* ContactsViewController.swift */; };
 		9246A80E2B97B3240037A636 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246A80D2B97B3240037A636 /* SettingsViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9209DA5C2BBE340F00F6D9C7 /* LocationDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDemoViewController.swift; sourceTree = "<group>"; };
 		921C8CAE2BAF306A007017ED /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		9246A8092B97B2EE0037A636 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		9246A80D2B97B3240037A636 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				92CCABF42B9011930089A09D /* Info.plist */,
 				921C8CAE2BAF306A007017ED /* DateViewController.swift */,
 				927199D82BB74D6B00B33306 /* ContactsTableViewController.swift */,
+				9209DA5C2BBE340F00F6D9C7 /* LocationDemoViewController.swift */,
 			);
 			path = "My Contact List";
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				92CCABE92B9011930089A09D /* SceneDelegate.swift in Sources */,
 				921C8CAF2BAF306A007017ED /* DateViewController.swift in Sources */,
 				9246A80E2B97B3240037A636 /* SettingsViewController.swift in Sources */,
+				9209DA5D2BBE340F00F6D9C7 /* LocationDemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
