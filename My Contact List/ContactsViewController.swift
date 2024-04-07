@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
+    
 
     var currentContact: Contact?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -18,14 +19,9 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtAddress: UITextField!
-    @IBOutlet weak var txtCity: UITextField!
-    @IBOutlet weak var txtState: UITextField!
-    @IBOutlet weak var txtZip: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtCell: UITextField!
-    @IBOutlet weak var txtHome: UITextField!
     @IBOutlet weak var btnChange: UIButton!
     @IBOutlet weak var lblBirthdate: UILabel!
+    @IBOutlet weak var priorityPicker: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,32 +29,37 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
         
         // Populates data from selecting a contact
         if currentContact != nil {
-            txtName.text = currentContact!.contactName
+            txtName.text = currentContact!.subject
             txtAddress.text = currentContact!.streetAddress
-            txtCity.text = currentContact!.city
-            txtState.text = currentContact!.state
-            txtZip.text = currentContact!.zipCode
-            txtHome.text = currentContact!.phoneNumber
-            txtCell.text = currentContact!.cellNumber
-            txtEmail.text = currentContact!.email
             let formatter = DateFormatter()
             
             //populating for date by first formatting date
             formatter.dateStyle = .short
-            if currentContact!.birthday != nil {
-                lblBirthdate.text = formatter.string(from: currentContact!.birthday!)
+            if currentContact!.dueDate != nil {
+                lblBirthdate.text = formatter.string(from: currentContact!.dueDate!)
+            }
+            
+            //populate priority segment picker
+            if currentContact!.priority == "Low" {
+                priorityPicker.selectedSegmentIndex = 0
+            } else if currentContact!.priority == "Medium" {
+                priorityPicker.selectedSegmentIndex = 1
+            } else {
+                priorityPicker.selectedSegmentIndex = 2
             }
         }
         
         changeEditMode(self)
         
-        let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtHome, txtCell, txtEmail]
+        let textFields: [UITextField] = [txtName, txtAddress]
         
         for textfield in textFields {
             textfield.addTarget(self, 
                                 action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
                                 for: UIControl.Event.editingDidEnd)
         }
+        
+        priorityPicker.addTarget(self, action: #selector(priorityShouldEndEditing(_:)), for: .valueChanged)
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -66,16 +67,24 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             let context = appDelegate.persistentContainer.viewContext
             currentContact = Contact(context: context)
         }
-        currentContact?.contactName = txtName.text
+        currentContact?.subject = txtName.text
         currentContact?.streetAddress = txtAddress.text
-        currentContact?.city = txtCity.text
-        currentContact?.state = txtState.text
-        currentContact?.zipCode = txtZip.text
-        currentContact?.cellNumber = txtCell.text
-        currentContact?.phoneNumber = txtHome.text
-        currentContact?.email = txtEmail.text
+        
         return true
     }
+    
+    @objc func priorityShouldEndEditing (_ segmentControl: UISegmentedControl) ->Bool {
+        if priorityPicker.selectedSegmentIndex == 0 {
+            currentContact?.priority = "Low"
+        } else if priorityPicker.selectedSegmentIndex == 1 {
+            currentContact?.priority = "Medium"
+        } else {
+            currentContact?.priority = "High"
+        }
+        return true
+    }
+    
+    
     
     @objc func saveContact() {
         appDelegate.saveContext()
@@ -89,7 +98,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             let context = appDelegate.persistentContainer.viewContext
             currentContact = Contact(context: context)
         }
-        currentContact?.birthday = date
+        currentContact?.dueDate = date
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         lblBirthdate.text = formatter.string(from: date)
@@ -109,7 +118,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     }
 
     @IBAction func changeEditMode(_ sender: Any) {
-        let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtCell, txtHome, txtEmail]
+        let textFields: [UITextField] = [txtName, txtAddress]
         
         if sgmtEditMode.selectedSegmentIndex == 0 {
             for textField in textFields {
@@ -117,6 +126,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                 textField.borderStyle = UITextField.BorderStyle.none
             }
             btnChange.isHidden = true
+            priorityPicker.isEnabled = false
             navigationItem.rightBarButtonItem = nil
         } else if sgmtEditMode.selectedSegmentIndex == 1 {
             for textField in textFields {
@@ -124,6 +134,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                 textField.borderStyle = UITextField.BorderStyle.roundedRect
             }
             btnChange.isHidden = false
+            priorityPicker.isEnabled = true
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveContact))
         }
     }

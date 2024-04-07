@@ -53,6 +53,8 @@ class ContactsTableViewController: UITableViewController {
         let sortDescriptorArray = [sortDescriptor]
         request.sortDescriptors = sortDescriptorArray
         
+        
+        
         // Execute Request
         do {
             contacts = try context.fetch(request)
@@ -80,13 +82,15 @@ class ContactsTableViewController: UITableViewController {
 
         // Configure the cell...
         let contact = contacts[indexPath.row] as? Contact
-        cell.textLabel?.text = "\((contact?.contactName) ?? " ") from \((contact?.city) ?? " ")"
+        cell.textLabel?.text = "\((contact?.subject) ?? " ") \n \((contact?.priority) ?? " ") Priority"
+        
         
         //Detail label for birthday
+        cell.detailTextLabel?.numberOfLines = 2
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        if contact?.birthday != nil {
-            cell.detailTextLabel?.text = "Born on: \(formatter.string(from: (contact?.birthday!)!))"
+        if contact?.dueDate != nil {
+            cell.detailTextLabel?.text = "Priority: \((contact?.priority) ?? " ") \nDue: \(formatter.string(from: (contact?.dueDate!)!))"
         }
 
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
@@ -126,7 +130,7 @@ class ContactsTableViewController: UITableViewController {
     // Warning message
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedContact = contacts[indexPath.row] as? Contact
-        let name = selectedContact!.contactName!
+        let name = selectedContact!.subject!
         let actionHandler = { (action: UIAlertAction!) -> Void in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "ContactController") as? ContactsViewController

@@ -25,7 +25,7 @@ class DateViewController: UIViewController {
         // Do any additional setup after loading the view.
         let saveButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: self, action: #selector(saveDate))
         self.navigationItem.rightBarButtonItem = saveButton
-        self.title = "Pick Birthdate"
+        self.title = "Pick Due Date"
     }
     
     @objc func saveDate() {
