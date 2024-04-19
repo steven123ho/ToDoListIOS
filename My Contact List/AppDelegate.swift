@@ -1,8 +1,4 @@
-//
-//  AppDelegate.swift
-//  My Contact List
-//
-//  Created by user246123 on 2/28/24.
+
 //
 
 import UIKit
